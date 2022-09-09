@@ -1,0 +1,19 @@
+{
+  "name": "fotoautomat-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/static": "^6.5.0",
+    "fastify": "^4.5.3"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
