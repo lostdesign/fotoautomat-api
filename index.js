@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const cors = require('@fastify/cors');
 const fastify = require('fastify')({
     logger: true
 })
@@ -8,7 +9,16 @@ fastify.register(require('@fastify/static'), {
     root: path.join(__dirname, 'images'),
 })
 
-fastify.get('/paths', async (request, reply) => {
+fastify.register(cors, {
+    origin: '*',
+    methods: ['GET']
+})
+
+fastify.get('/paths', (request, reply) => {
+
+    reply.header("Access-Control-Allow-Origin", "*");
+    reply.header("Access-Control-Allow-Methods", "GET");
+
     reply.send({
         images: fs
             .readdirSync('./images', { withFileTypes: true })
